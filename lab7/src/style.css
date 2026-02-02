@@ -1,0 +1,90 @@
+/* 1. Reset cơ bản để mọi kích thước được tính toán chính xác */
+*, *::before, *::after {
+  box-sizing: border-box; /* Giúp padding/border không làm tăng kích thước thật của khung */
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: #000000;
+  background-color: #ffffff;
+
+  /* Giúp chữ hiển thị mượt hơn */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2. Đảm bảo body luôn chiếm hết chiều cao màn hình và không gây vỡ layout */
+body {
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden; /* Ngăn chặn cuộn ngang gây lệch khung */
+  line-height: 1.6;
+  background-color: #ffffff;
+}
+
+/* 3. Container chính để khống chế độ rộng toàn trang */
+#app {
+  width: 100%;
+  max-width: 1440px; /* Tăng nhẹ từ 1280 lên để thoáng hơn cho màn hình lớn */
+  margin: 0 auto;
+  padding: 0 20px;   /* Khoảng đệm nhẹ hai bên để khi co màn hình không bị dính sát mép */
+  display: flex;
+  flex-direction: column; /* Để nội dung xếp từ trên xuống dưới */
+  min-height: 100vh;
+}
+
+/* 4. Đảm bảo hình ảnh và video không bao giờ "chọc thủng" khung hình */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* 5. Giữ các thẻ heading ổn định */
+h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word; /* Tránh chữ quá dài làm vỡ khung */
+  color: #000000;
+}
+
+/* Link & Button giữ nguyên ý đồ của bạn nhưng tối ưu hơn */
+a {
+  font-weight: 500;
+  color: #0066cc;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #0052a3;
+}
+
+button {
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Thẻ card phổ biến để bạn dùng trong các trang con */
+.card {
+  width: 100%; /* Đảm bảo card luôn ăn theo khung cha */
+  padding: 1.5em;
+  background-color: #ffffff;
+  border: 1px solid #eee; /* Thêm viền nhẹ để định hình khung */
+  border-radius: 8px;
+}
